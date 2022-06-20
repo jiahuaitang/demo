@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Vector;
 import java.util.stream.Collectors;
 
 @RestController
@@ -31,7 +32,6 @@ public class testController {
             }
             entities[i] = new Entity(Long.valueOf(i),"entity"+i,age);
         }
-
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -41,7 +41,7 @@ public class testController {
         List<Entity> list = Arrays.asList(entities);
         StopWatch sw = new StopWatch();
         sw.start("开始");
-        List<Entity> collect = list.stream().filter(e -> e.getId() % 2 == 0).collect(Collectors.toList());
+        List<Entity> collect = list.parallelStream().filter(e -> e.getId() % 2 == 0).collect(Collectors.toList());
         sw.stop();
         System.out.println(sw.prettyPrint());
         System.out.println(sw.getTotalTimeMillis()+"");
