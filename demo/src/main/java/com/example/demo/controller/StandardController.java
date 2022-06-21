@@ -5,6 +5,7 @@ import com.example.demo.vo.StandaryVo;
 import com.example.demo.entity.StandaryEntity;
 import com.example.demo.service.StandardService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +22,7 @@ public class StandardController {
     }
 
     /**
-     * 测试参数： {"id":1,"name":"测试","price":12}
+     * 测试参数：{"id":1,"name":"测试","password":"1231","email":"123a","price":12}
      * @param standaryVo
      * @return
      */
@@ -31,7 +32,7 @@ public class StandardController {
     }
 
     /**
-     * 测试参数： {"id":1,"name":"测试","price":12}
+     * 测试参数：{"id":1,"name":"测试","password":"1231","email":"123a","price":12}
      * @param standaryVo
      * @return
      */
