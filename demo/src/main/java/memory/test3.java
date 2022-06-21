@@ -1,4 +1,4 @@
-package Memory;
+package memory;
 
 public class test3 {
     private static int stackLength = 0;

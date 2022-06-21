@@ -1,7 +1,8 @@
-package com.example.demo.Exception;
+package com.example.demo.advice;
 
+import com.example.demo.exception.APIException;
 import com.example.demo.result.ResultCode;
-import com.example.demo.Vo.ResultVo;
+import com.example.demo.vo.ResultVo;
 import org.springframework.validation.BindException;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -1,10 +1,8 @@
-package Memory;
+package memory;
 
 import sun.misc.Unsafe;
 
 import java.lang.reflect.Field;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * -XX:MaxMeta-spaceSize

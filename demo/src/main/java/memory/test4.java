@@ -1,4 +1,4 @@
-package Memory;
+package memory;
 
 /**
  * -Xss2M (这时候不妨设大些，请在32位系统下运行)

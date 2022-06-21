@@ -1,15 +1,13 @@
-package com.example.demo.Controller;
+package com.example.demo.controller;
 
+import com.example.demo.annotation.NotControllerResponseAdvice;
 import org.springframework.util.StopWatch;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Vector;
 import java.util.stream.Collectors;
 
 @RestController
@@ -17,6 +15,7 @@ import java.util.stream.Collectors;
 public class testController {
 
     @GetMapping("sayHello")
+    @NotControllerResponseAdvice
     public String sayHello(){
         return "hello!";
     }
