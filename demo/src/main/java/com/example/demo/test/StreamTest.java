@@ -1,8 +1,12 @@
 package com.example.demo.test;
 
+import com.example.demo.entity.StandaryEntity;
+import com.example.demo.vo.StandaryVo;
+import org.springframework.beans.BeanUtils;
 import org.springframework.util.ObjectUtils;
 
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -28,7 +32,57 @@ public class StreamTest {
         //StreamTest.demo16();
         //StreamTest.demo17();
         //StreamTest.demo18();
-        StreamTest.demo19();
+        //StreamTest.demo19();
+        StreamTest.demo20();
+
+
+    }
+    public static void demo20(){
+        int[] arr = {1,2,3};
+        StandaryEntity standary1 = new StandaryEntity();
+        standary1.setId(1);
+        standary1.setName("ces");
+        StandaryEntity standary2 = new StandaryEntity();
+        standary2.setId(2);
+        standary2.setName("ces");
+        StandaryEntity standary3 = new StandaryEntity();
+        standary3.setId(3);
+        standary3.setName("ces");
+        StandaryEntity standary4 = new StandaryEntity();
+        standary4.setId(4);
+        standary4.setName("ces");
+        List<StandaryEntity> list = new ArrayList<>();
+        list.add(standary1);
+        list.add(standary2);
+        list.add(standary3);
+        list.add(standary4);
+
+        List<StandaryVo> ll = null;
+
+        ll = list.stream().filter(a -> {
+            boolean status = true;
+            for (int i = 0; i < arr.length; i++) {
+                if (a.getId() == arr[i]) {
+                    status = false;
+                }
+                if (!status) {
+                    return status;
+                }
+            }
+            return status;
+        }).flatMap(air -> {
+                    StandaryVo s = new StandaryVo();
+                    s.setId(air.getId());
+                    s.setName(air.getName());
+                    return s;
+                }
+        ).collect(Collectors.toList());
+        System.out.println(ll);
+
+
+
+
+
 
 
     }
@@ -190,5 +244,6 @@ public class StreamTest {
         System.out.println(Arrays.toString(collect.toArray()));
 
     }
+
 
 }
